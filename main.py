@@ -17,62 +17,156 @@ def init():
     glClearColor(0.0, 0.0, 0.0, 1.0)
     gluOrtho2D(-720.0, 720.0, -500.0, 500.0)
 
-def virus():
-    global virus_x
-    glColor3ub(0, 255, 8)
+def player():
+    #sepatu
+    glColor3ub(0 , 220 ,200)
+    glBegin(GL_QUADS)
+    glVertex2f(30 + pos_x, -300)
+    glVertex2f(20 + pos_x, -290)
+    glVertex2f(10 + pos_x, -290)
+    glVertex2f(10 + pos_x, -300)
+    glEnd()
+    glColor3ub(0 , 220 ,200)
+    glBegin(GL_QUADS)
+    glVertex2f(-10 + pos_x, -300)
+    glVertex2f(-30 + pos_x, -300)
+    glVertex2f(-20 + pos_x, -290)
+    glVertex2f(-10 + pos_x, -290)
+    glEnd()
+    #kaki
+    glColor3ub(255, 255, 255)
     glBegin(GL_POLYGON)
-    glVertex2f(-700 + virus_x, 300)
-    glVertex2f(-650 + virus_x, 300)
-    glVertex2f(-650 + virus_x, 250)
-    glVertex2f(-700 + virus_x, 250)
+    glVertex2f(20 + pos_x, -290)
+    glVertex2f(20 + pos_x, -280)
+    glVertex2f(10 + pos_x, -280)
+    glVertex2f(10 + pos_x, -290)
+    glEnd()
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-20 + pos_x, -280)
+    glVertex2f(-10 + pos_x, -280)
+    glVertex2f(-10 + pos_x, -290)
+    glVertex2f(-20 + pos_x, -290)
+    glEnd()
+    #badan
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(30 + pos_x, -280)
+    glVertex2f(-30 + pos_x, -280)
+    glVertex2f(-30 + pos_x, -250)
+    glVertex2f(30 + pos_x, -250)
+    glEnd()
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-30 + pos_x, -210)
+    glVertex2f(30 + pos_x, -210)
+    glVertex2f(30 + pos_x, -250)
+    glVertex2f(-30 + pos_x, -250)
+    glEnd()
+    #sabuk
+    glColor3ub(0, 26, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-30 + pos_x, -255)
+    glVertex2f(30 + pos_x, -255)
+    glVertex2f(30 + pos_x, -250)
+    glVertex2f(-30 + pos_x, -250)
+    glEnd()
+    glColor3ub(0, 26, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-2 + pos_x, -280)
+    glVertex2f(-2 + pos_x, -210)
+    glVertex2f(2 + pos_x, -210)
+    glVertex2f(2 + pos_x, -280)
+    glEnd()
+    #tangan
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(30 + pos_x, -210)
+    glVertex2f(30 + pos_x, -220)
+    glVertex2f(50 + pos_x, -220)
+    glVertex2f(40 + pos_x, -210)
+    glEnd()
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(40 + pos_x, -210)
+    glVertex2f(50 + pos_x, -220)
+    glVertex2f(50 + pos_x, -190)
+    glVertex2f(40 + pos_x, -190)
+    glEnd()
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-30 + pos_x, -210)
+    glVertex2f(-30 + pos_x, -220)
+    glVertex2f(-40 + pos_x, -220)
+    glVertex2f(-50 + pos_x, -210)
+    glEnd()
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-50 + pos_x, -210)
+    glVertex2f(-40 + pos_x, -220)
+    glVertex2f(-40 + pos_x, -250)
+    glVertex2f(-50 + pos_x, -250)
+    glEnd()
+    #leher
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-10 + pos_x, -210)
+    glVertex2f(10 + pos_x, -210)
+    glVertex2f(10 + pos_x, -200)
+    glVertex2f(-10 + pos_x, -200)
+    glEnd()
+    #kepala
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-25 + pos_x, -160)
+    glVertex2f(25 + pos_x, -160)
+    glVertex2f(25 + pos_x, -200)
+    glVertex2f(-25 + pos_x, -200)
+    glEnd()
+    #muka
+    glColor3ub(207, 150, 107)
+    glBegin(GL_POLYGON)
+    glVertex2f(-20 + pos_x, -165)
+    glVertex2f(20 + pos_x, -165)
+    glVertex2f(20 + pos_x, -195)
+    glVertex2f(-20 + pos_x, -195)
+    glEnd()
+    #suntik
+    glColor3ub(201, 201, 201)
+    glBegin(GL_POLYGON)
+    glVertex2f(35 + pos_x, -190)
+    glVertex2f(55 + pos_x, -190)
+    glVertex2f(50 + pos_x, -185)
+    glVertex2f(40 + pos_x, -185)
+    glEnd()
+    glColor3ub(201, 201, 201)
+    glBegin(GL_LINES)
+    glVertex2f(45 + pos_x, -185)
+    glVertex2f(45 + pos_x, -180)
+    glEnd()
+    glColor3ub(201, 201, 201)
+    glBegin(GL_POLYGON)
+    glVertex2f(40 + pos_x, -180)
+    glVertex2f(50 + pos_x, -180)
+    glVertex2f(50 + pos_x, -160)
+    glVertex2f(45 + pos_x, -155)
+    glVertex2f(40 + pos_x, -160)
+    glEnd()
+    glColor3ub(201, 201, 201)
+    glBegin(GL_LINES)
+    glVertex2f(45 + pos_x, -155)
+    glVertex2f(45 + pos_x, -150)
     glEnd()
 
-class Dokter:
-    def kotak():
-        global pos_x, pos_y
-        glColor3ub(186, 142, 84)
-        glBegin(GL_POLYGON)
-        glVertex2f(-50 + pos_x, -300 + pos_y)
-        glVertex2f(50 + pos_x, -300 + pos_y)
-        glVertex2f(50 + pos_x, -250 + pos_y)
-        glVertex2f(-50 + pos_x, -250 + pos_y)
-        glEnd()
-
 class Virus:
-    def badan():
-        global pos_x, pos_y
-        glColor3ub(48, 48, 48)
+    def virus():
+        global virus_x
+        glColor3ub(0, 255, 8)
         glBegin(GL_POLYGON)
-        # Kiri Atas
-        glVertex2f(-50 + pos_x,0 + pos_y)
-        # Kanan Atas
-        glVertex2f(-100 + pos_x,40 + pos_y)
-        # Kanan Bawah
-        glVertex2f(-100 + pos_x,50 + pos_y)
-        # Kiri Bawah
-        glVertex2f(100 + pos_x,50 + pos_y)
-        glVertex2f(100 + pos_x,40 + pos_y)
-        glVertex2f(50 + pos_x,0 + pos_y)
-        glEnd()
-
-    def badanBawah():
-        global pos_x, pos_y
-        glColor3ub(148, 0, 0)
-        glBegin(GL_POLYGON)
-        glVertex2f(-60 + pos_x, 8 + pos_y)
-        glVertex2f(60 + pos_x, 8 + pos_y)
-        glVertex2f(50 + pos_x, 0 + pos_y)
-        glVertex2f(-50 + pos_x, 0 + pos_y)
-        glEnd()
-
-    def tiangBendera():
-        global pos_x, pos_y
-        glColor3ub(48, 48, 48)
-        glBegin(GL_POLYGON)
-        glVertex2f(-5 + pos_x, 50 + pos_y)
-        glVertex2f(5 + pos_x, 50 + pos_y)
-        glVertex2f(5 + pos_x, 90 + pos_y)
-        glVertex2f(-5 + pos_x, 90 + pos_y)
+        glVertex2f(-700 + virus_x, 300)
+        glVertex2f(-650 + virus_x, 300)
+        glVertex2f(-650 + virus_x, 250)
+        glVertex2f(-700 + virus_x, 250)
         glEnd()
 
 def GarisRumput():
@@ -94,19 +188,16 @@ def Rumput():
 def display():
     glClear(GL_COLOR_BUFFER_BIT)
     glPushMatrix()
-    Dokter.kotak()
-    # Kapal.badan()
-    # Kapal.tiangBendera()
-    # Kapal.badanBawah()
+    # Dokter.kotak()
+    player()
+    Virus.virus()
     GarisRumput()
     Rumput()
-    virus()
     glPopMatrix()
     glFlush()
 
 def input_mouse(button, state, x, y):
     global hijau, biru, merah
-    # Saat mengklik kanan warna kapal akan berubah menjadi warna biru dan merah
     if button == GLUT_RIGHT_BUTTON and state == GLUT_DOWN:
         if biru< 1:
             hijau = 0
@@ -117,7 +208,6 @@ def input_mouse(button, state, x, y):
             biru = 0
             merah = 1
             print("Kanan", "(", x, ",", y, ")")
-        # Saat mengklik kiri warna kapal akan berubah menjadi warna hijau dan hitam
     elif button == GLUT_LEFT_BUTTON and state == GLUT_DOWN:
         if hijau < 1:
             hijau = 1
@@ -131,13 +221,6 @@ def input_mouse(button, state, x, y):
 
 def input_keyboard(key,x,y):
     global pos_x, pos_y
-    # Untuk mengubah posisi kapal
-    # if key == GLUT_KEY_UP:
-    #     pos_y += 5
-    #     print("Tombol Atas ditekan ", "x : ", pos_x, " y : ", pos_y)
-    # elif key == GLUT_KEY_DOWN:
-    #     pos_y -= 5
-    #     print("Tombol Bawah ditekan ", "x : ", pos_x, " y : ", pos_y)
     if key == GLUT_KEY_RIGHT:
         if pos_x >= 660:
             pos_x += 0
@@ -151,14 +234,6 @@ def input_keyboard(key,x,y):
             else:
                 pos_x -= 15
                 print("Kanan", "x : ", pos_x, " y : ", pos_y)
-    if pos_x < 0 and pos_y > 0:
-        glClearColor(0.0, 1.0, 0.0, 1.0)
-    if pos_x > 0 and pos_y > 0:
-        glClearColor(0.0,0.0,1.0,1.0)
-    if pos_x > 0 and pos_y < 0:
-        glClearColor(1.0, 0.0, 0.0, 1.0)
-    if pos_x < 0 and pos_y < 0:
-        glClearColor(0.0,0.0,0.0,1.0)
 
 def update(value):
     glutPostRedisplay()
