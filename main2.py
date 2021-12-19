@@ -105,11 +105,86 @@ def bg_text(x,y):
     glEnd()
 
 def player():
+    global pos_x, pos_y, game_over, temp_x_virus_1, temp_y_virus_1
 
-    # if pos_x in range(temp_y_virus_1 - 8, temp_y_virus_1 + 200) and pos_y_pemain in range(pos_y_mobil - 40, pos_y_mobil + 60):
-    #     pos_x = 0
-    #     pos_y_pemain = 0
-    #     game_over = True
+    #collusion virus1
+    if pos_x in range(int(temp_x_virus_1)-170, int(temp_x_virus_1)-65 + 1) and pos_y in range(int(temp_y_virus_1)+190 , int(temp_y_virus_1)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus2
+    if pos_x in range(int(temp_x_virus_2)-185, int(temp_x_virus_2)-65 + 1) and pos_y in range(int(temp_y_virus_2)+190 , int(temp_y_virus_2)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus3
+    if pos_x in range(int(temp_x_virus_3)-180, int(temp_x_virus_3)-60 + 1) and pos_y in range(int(temp_y_virus_3)+190 , int(temp_y_virus_3)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus4
+    if pos_x in range(int(temp_x_virus_4)-180, int(temp_x_virus_4)-60 + 1) and pos_y in range(int(temp_y_virus_4)+190 , int(temp_y_virus_4)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus5
+    if pos_x in range(int(temp_x_virus_5)-180, int(temp_x_virus_5)-60 + 1) and pos_y in range(int(temp_y_virus_5)+190 , int(temp_y_virus_5)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus6
+    if pos_x in range(int(temp_x_virus_6)-180, int(temp_x_virus_6)-60 + 1) and pos_y in range(int(temp_y_virus_6)+190 , int(temp_y_virus_6)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus7
+    if pos_x in range(int(temp_x_virus_7)-180, int(temp_x_virus_7)-60 + 1) and pos_y in range(int(temp_y_virus_7)+190 , int(temp_y_virus_7)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus8
+    if pos_x in range(int(temp_x_virus_8)-180, int(temp_x_virus_8)-60 + 1) and pos_y in range(int(temp_y_virus_8)+190 , int(temp_y_virus_8)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus9
+    if pos_x in range(int(temp_x_virus_9)-180, int(temp_x_virus_9)-60 + 1) and pos_y in range(int(temp_y_virus_9)+190 , int(temp_y_virus_9)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus10
+    if pos_x in range(int(temp_x_virus_10)-180, int(temp_x_virus_10)-60 + 1) and pos_y in range(int(temp_y_virus_10)+190 , int(temp_y_virus_10)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus11
+    if pos_x in range(int(temp_x_virus_11)-180, int(temp_x_virus_11)-60 + 1) and pos_y in range(int(temp_y_virus_11)+190 , int(temp_y_virus_11)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus12
+    if pos_x in range(int(temp_x_virus_12)-180, int(temp_x_virus_12)-60 + 1) and pos_y in range(int(temp_y_virus_12)+190 , int(temp_y_virus_12)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
+    #collusion virus13
+    if pos_x in range(int(temp_x_virus_13)-180, int(temp_x_virus_13)-60 + 1) and pos_y in range(int(temp_y_virus_13)+190 , int(temp_y_virus_13)+220):
+        pos_x = 0
+        pos_y = 0
+        game_over = True
+
 
     #sepatu
     glColor3ub(0 , 220 ,200)
