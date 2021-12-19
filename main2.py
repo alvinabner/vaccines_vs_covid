@@ -1,6 +1,8 @@
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
+import OpenGL.GLUT as glut
+
 
 pos_x = 0
 pos_y = 0
@@ -15,18 +17,44 @@ temp_x = -720
 temp_y = 250
 
 temp_y_virus_1 = 1200
+temp_x_virus_1 = 170
+
 temp_y_virus_2 = 620
+temp_x_virus_2 = -400
+
 temp_y_virus_3 = 690
+temp_x_virus_3 = -150
+
 temp_y_virus_4 = 1020
+temp_x_virus_4 = 260
+
 temp_y_virus_5 = 800
+temp_x_virus_5 = 510
+
 temp_y_virus_6 = 500
+temp_x_virus_6 = -260
+
 temp_y_virus_7 = 700
+temp_x_virus_7 = 80
+
 temp_y_virus_8 = 840
+temp_x_virus_8 = -80
+
 temp_y_virus_9 = 900
+temp_x_virus_9 = 380
+
 temp_y_virus_10 = 1400
+temp_x_virus_10 = 640
+
 temp_y_virus_11 = 1080
+temp_x_virus_11 = 740
+
 temp_y_virus_12 = 2800
+temp_x_virus_12 = 25
+
 temp_y_virus_13 = 1100
+temp_x_virus_13 = -500
+
 
 kecepatan_virus1 = 1.2
 kecepatan_virus2 = 2
@@ -46,11 +74,43 @@ peluru_x = 0
 peluru_y = 0
 kecepatan_peluru = 10
 
+game_over = False
+
 def init():
     glClearColor(0.0, 0.0, 0.0, 1.0)
     gluOrtho2D(-720.0, 720.0, -500.0, 500.0)
 
+def drawText(ch,xpos,ypos,r,b,g):
+    glPushMatrix()
+    color = (r, b, g)
+    font_style = glut.GLUT_BITMAP_HELVETICA_18
+    glColor3ub(color[0],color[1],color[2])
+    line=0
+    glRasterPos2f (xpos, ypos)
+    for i in ch:
+       if  i=='\n':
+          line=line+1
+          glRasterPos2f (xpos, ypos*line)
+       else:
+          glutBitmapCharacter(font_style, ord(i))  
+    glPopMatrix()  
+
+def bg_text(x,y):
+    glColor3ub(255, 0, 0)     
+    glBegin(GL_QUADS)
+    glVertex2f(110+x-500,210+y-500)
+    glVertex2f(445+x-500,210+y-500)
+    glVertex2f(445+x-500,260+y-500)
+    glVertex2f(110+x-500,260+y-500)
+    glEnd()
+
 def player():
+
+    # if pos_x in range(temp_y_virus_1 - 8, temp_y_virus_1 + 200) and pos_y_pemain in range(pos_y_mobil - 40, pos_y_mobil + 60):
+    #     pos_x = 0
+    #     pos_y_pemain = 0
+    #     game_over = True
+
     #sepatu
     glColor3ub(0 , 220 ,200)
     glBegin(GL_QUADS)
@@ -526,7 +586,7 @@ def gedung():
     glEnd()
 
 def virus1():
-    global temp_y_virus_1, kecepatan_virus1
+    global temp_y_virus_1, temp_x_virus_1, kecepatan_virus1
 
     if temp_y_virus_1 <= -500:
         temp_y_virus_1 = 500
@@ -534,7 +594,7 @@ def virus1():
     temp_y_virus_1 -= kecepatan_virus1
 
     glPushMatrix()
-    glTranslated(-400, temp_y_virus_1 , 0)
+    glTranslated(temp_x_virus_1, temp_y_virus_1 , 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -568,7 +628,7 @@ def virus1():
     glPopMatrix()
 
 def virus2():
-    global temp_y_virus_2, kecepatan_virus2
+    global temp_y_virus_2, temp_x_virus_2 ,kecepatan_virus2
 
     if temp_y_virus_2 <= -500:
         temp_y_virus_2 = 500
@@ -576,7 +636,7 @@ def virus2():
     temp_y_virus_2 -= kecepatan_virus2
 
     glPushMatrix()
-    glTranslated(170, temp_y_virus_2, 0)
+    glTranslated(temp_x_virus_2, temp_y_virus_2, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -610,7 +670,7 @@ def virus2():
     glPopMatrix()
 
 def virus3():
-    global temp_y_virus_3, kecepatan_virus3
+    global temp_y_virus_3, kecepatan_virus3, temp_x_virus_3
 
     if temp_y_virus_3 <= -500:
         temp_y_virus_3 = 500
@@ -618,7 +678,7 @@ def virus3():
     temp_y_virus_3 -= kecepatan_virus3
 
     glPushMatrix()
-    glTranslated(-150, temp_y_virus_3, 0)
+    glTranslated(temp_x_virus_3, temp_y_virus_3, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -652,7 +712,7 @@ def virus3():
     glPopMatrix()
 
 def virus4():
-    global temp_y_virus_4, kecepatan_virus4
+    global temp_y_virus_4, kecepatan_virus4, temp_x_virus_4
 
     if temp_y_virus_4 <= -500:
         temp_y_virus_4 = 500
@@ -660,7 +720,7 @@ def virus4():
     temp_y_virus_4 -= kecepatan_virus4
 
     glPushMatrix()
-    glTranslated(260, temp_y_virus_4, 0)
+    glTranslated(temp_x_virus_4, temp_y_virus_4, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -694,7 +754,7 @@ def virus4():
     glPopMatrix()
 
 def virus5():
-    global temp_y_virus_5, kecepatan_virus5
+    global temp_y_virus_5, kecepatan_virus5, temp_x_virus_5
 
     if temp_y_virus_5 <= -500:
         temp_y_virus_5 = 500
@@ -702,7 +762,7 @@ def virus5():
     temp_y_virus_5 -= kecepatan_virus5
 
     glPushMatrix()
-    glTranslated(510, temp_y_virus_5, 0)
+    glTranslated(temp_x_virus_5, temp_y_virus_5, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -736,7 +796,7 @@ def virus5():
     glPopMatrix()
 
 def virus6():
-    global temp_y_virus_6, kecepatan_virus6
+    global temp_y_virus_6, kecepatan_virus6, temp_x_virus_6
 
     if temp_y_virus_6 <= -500:
         temp_y_virus_6 = 500
@@ -744,7 +804,7 @@ def virus6():
     temp_y_virus_6 -= kecepatan_virus6
 
     glPushMatrix()
-    glTranslated(-260, temp_y_virus_6, 0)
+    glTranslated(temp_x_virus_6, temp_y_virus_6, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -778,7 +838,7 @@ def virus6():
     glPopMatrix()
 
 def virus7():
-    global temp_y_virus_7, kecepatan_virus7
+    global temp_y_virus_7, kecepatan_virus7, temp_x_virus_7
 
     if temp_y_virus_7 <= -500:
         temp_y_virus_7 = 500
@@ -786,7 +846,7 @@ def virus7():
     temp_y_virus_7 -= kecepatan_virus7
 
     glPushMatrix()
-    glTranslated(80, temp_y_virus_7, 0)
+    glTranslated(temp_x_virus_7, temp_y_virus_7, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -820,7 +880,7 @@ def virus7():
     glPopMatrix()
     
 def virus8():
-    global temp_y_virus_8, kecepatan_virus8
+    global temp_y_virus_8, kecepatan_virus8, temp_x_virus_8
 
     if temp_y_virus_8 <= -500:
         temp_y_virus_8 = 500
@@ -828,7 +888,7 @@ def virus8():
     temp_y_virus_8 -= kecepatan_virus8
 
     glPushMatrix()
-    glTranslated(-80, temp_y_virus_8, 0)
+    glTranslated(temp_x_virus_8, temp_y_virus_8, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -862,7 +922,7 @@ def virus8():
     glPopMatrix()
 
 def virus9():
-    global temp_y_virus_9, kecepatan_virus9
+    global temp_y_virus_9, kecepatan_virus9, temp_x_virus_9
 
     if temp_y_virus_9 <= -500:
         temp_y_virus_9 = 500
@@ -870,7 +930,7 @@ def virus9():
     temp_y_virus_9 -= kecepatan_virus9
 
     glPushMatrix()
-    glTranslated(380, temp_y_virus_9, 0)
+    glTranslated(temp_x_virus_9, temp_y_virus_9, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -904,7 +964,7 @@ def virus9():
     glPopMatrix()
 
 def virus10():
-    global temp_y_virus_10, kecepatan_virus10
+    global temp_y_virus_10, kecepatan_virus10, temp_x_virus_10
 
     if temp_y_virus_10 <= -500:
         temp_y_virus_10 = 500
@@ -912,7 +972,7 @@ def virus10():
     temp_y_virus_10 -= kecepatan_virus10
 
     glPushMatrix()
-    glTranslated(640, temp_y_virus_10, 0)
+    glTranslated(temp_x_virus_10, temp_y_virus_10, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -946,7 +1006,7 @@ def virus10():
     glPopMatrix()
 
 def virus11():
-    global temp_y_virus_11, kecepatan_virus11
+    global temp_y_virus_11, kecepatan_virus11, temp_x_virus_11
 
     if temp_y_virus_11 <= -500:
         temp_y_virus_11 = 500
@@ -954,7 +1014,7 @@ def virus11():
     temp_y_virus_11 -= kecepatan_virus11
 
     glPushMatrix()
-    glTranslated(740, temp_y_virus_11, 0)
+    glTranslated(temp_x_virus_11, temp_y_virus_11, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -988,7 +1048,7 @@ def virus11():
     glPopMatrix()
 
 def virus12():
-    global temp_y_virus_12, kecepatan_virus12
+    global temp_y_virus_12, kecepatan_virus12, temp_x_virus_12
 
     if temp_y_virus_12 <= -500:
         temp_y_virus_12 = 500
@@ -996,7 +1056,7 @@ def virus12():
     temp_y_virus_12 -= kecepatan_virus12
 
     glPushMatrix()
-    glTranslated(25, temp_y_virus_12, 0)
+    glTranslated(temp_x_virus_12, temp_y_virus_12, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -1030,7 +1090,7 @@ def virus12():
     glPopMatrix()
 
 def virus13():
-    global temp_y_virus_13, kecepatan_virus13
+    global temp_y_virus_13, kecepatan_virus13, temp_x_virus_13
 
     if temp_y_virus_13 <= -500:
         temp_y_virus_13 = 500
@@ -1038,7 +1098,7 @@ def virus13():
     temp_y_virus_13 -= kecepatan_virus13
 
     glPushMatrix()
-    glTranslated(-500, temp_y_virus_13, 0)
+    glTranslated(temp_x_virus_13, temp_y_virus_13, 0)
 
     glColor3ub(82, 235, 0)
     glBegin(GL_POLYGON)
@@ -1119,19 +1179,23 @@ def display():
     gedung()
     player()
 
-    virus1()
-    virus2()
-    virus3()
-    virus4()
-    virus5()
-    virus6()
-    virus7()
-    virus8()
-    virus9()
-    virus10()
-    virus11()
-    virus12()
-    virus13()
+    if game_over == True:
+        bg_text(200,40)
+        drawText("G A M E O V E R",-160,-238,255, 255, 255)
+    else:
+        virus1()
+        virus2()
+        virus3()
+        virus4()
+        virus5()
+        virus6()
+        virus7()
+        virus8()
+        virus9()
+        virus10()
+        virus11()
+        virus12()
+        virus13()
 
     GarisRumput()
     Rumput()
