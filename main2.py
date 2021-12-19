@@ -1,7 +1,7 @@
+import OpenGL.GLUT as glut
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
-import OpenGL.GLUT as glut
 
 
 pos_x = 0
@@ -10,6 +10,8 @@ pos_y = 0
 hijau = 0
 biru = 0
 merah = 0
+
+darah = 100
 
 virus_x = 0
 
@@ -76,6 +78,13 @@ kecepatan_peluru = 10
 
 game_over = False
 
+def bar_darah():
+    global darah
+    glRasterPos(600,420)
+    glColor3f(1,1,1)
+    for g in str(darah):
+        glutBitmapCharacter(glut.GLUT_BITMAP_TIMES_ROMAN_24, ord(g))
+
 def init():
     glClearColor(0.0, 0.0, 0.0, 1.0)
     gluOrtho2D(-720.0, 720.0, -500.0, 500.0)
@@ -105,86 +114,111 @@ def bg_text(x,y):
     glEnd()
 
 def player():
-    global pos_x, pos_y, game_over, temp_x_virus_1, temp_y_virus_1
+    global pos_x, pos_y, game_over, temp_x_virus_1, temp_y_virus_1, darah
 
     #collusion virus1
     if pos_x in range(int(temp_x_virus_1)-170, int(temp_x_virus_1)-65 + 1) and pos_y in range(int(temp_y_virus_1)+190 , int(temp_y_virus_1)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus2
     if pos_x in range(int(temp_x_virus_2)-185, int(temp_x_virus_2)-65 + 1) and pos_y in range(int(temp_y_virus_2)+190 , int(temp_y_virus_2)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus3
     if pos_x in range(int(temp_x_virus_3)-180, int(temp_x_virus_3)-60 + 1) and pos_y in range(int(temp_y_virus_3)+190 , int(temp_y_virus_3)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus4
     if pos_x in range(int(temp_x_virus_4)-180, int(temp_x_virus_4)-60 + 1) and pos_y in range(int(temp_y_virus_4)+190 , int(temp_y_virus_4)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus5
     if pos_x in range(int(temp_x_virus_5)-180, int(temp_x_virus_5)-60 + 1) and pos_y in range(int(temp_y_virus_5)+190 , int(temp_y_virus_5)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus6
     if pos_x in range(int(temp_x_virus_6)-180, int(temp_x_virus_6)-60 + 1) and pos_y in range(int(temp_y_virus_6)+190 , int(temp_y_virus_6)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus7
     if pos_x in range(int(temp_x_virus_7)-180, int(temp_x_virus_7)-60 + 1) and pos_y in range(int(temp_y_virus_7)+190 , int(temp_y_virus_7)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus8
     if pos_x in range(int(temp_x_virus_8)-180, int(temp_x_virus_8)-60 + 1) and pos_y in range(int(temp_y_virus_8)+190 , int(temp_y_virus_8)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus9
     if pos_x in range(int(temp_x_virus_9)-180, int(temp_x_virus_9)-60 + 1) and pos_y in range(int(temp_y_virus_9)+190 , int(temp_y_virus_9)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus10
     if pos_x in range(int(temp_x_virus_10)-180, int(temp_x_virus_10)-60 + 1) and pos_y in range(int(temp_y_virus_10)+190 , int(temp_y_virus_10)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus11
     if pos_x in range(int(temp_x_virus_11)-180, int(temp_x_virus_11)-60 + 1) and pos_y in range(int(temp_y_virus_11)+190 , int(temp_y_virus_11)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus12
     if pos_x in range(int(temp_x_virus_12)-180, int(temp_x_virus_12)-60 + 1) and pos_y in range(int(temp_y_virus_12)+190 , int(temp_y_virus_12)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #collusion virus13
     if pos_x in range(int(temp_x_virus_13)-180, int(temp_x_virus_13)-60 + 1) and pos_y in range(int(temp_y_virus_13)+190 , int(temp_y_virus_13)+220):
         pos_x = 0
         pos_y = 0
-        game_over = True
-
+        darah -= 25
+        if darah == 0 :
+            game_over = True
 
     #sepatu
     glColor3ub(0 , 220 ,200)
@@ -1273,7 +1307,6 @@ def display():
     gedung6()
     gedung7()
     gedung8()
-    player()
 
     if game_over == True:
         bg_text(200,40)
@@ -1292,9 +1325,11 @@ def display():
         virus11()
         virus12()
         virus13()
-
+        player()
+        bar_darah()
     GarisRumput()
     Rumput()
+
 
     glPopMatrix()
     glFlush()
