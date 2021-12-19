@@ -117,7 +117,7 @@ def player():
     global pos_x, pos_y, game_over, temp_x_virus_1, temp_y_virus_1, darah
 
     #collusion virus1
-    if pos_x in range(int(temp_x_virus_1)-170, int(temp_x_virus_1)-65 + 1) and pos_y in range(int(temp_y_virus_1)+190 , int(temp_y_virus_1)+220):
+    if pos_x in range(int(temp_x_virus_1)-170, int(temp_x_virus_1)-65 + 1) and pos_y in range(int(temp_y_virus_1)+190 , int(temp_y_virus_1)+192):
         pos_x = 0
         pos_y = 0
         darah -= 25
@@ -165,7 +165,7 @@ def player():
             game_over = True
 
     #collusion virus7
-    if pos_x in range(int(temp_x_virus_7)-180, int(temp_x_virus_7)-60 + 1) and pos_y in range(int(temp_y_virus_7)+190 , int(temp_y_virus_7)+220):
+    if pos_x in range(int(temp_x_virus_7)-180, int(temp_x_virus_7)-60 + 1) and pos_y in range(int(temp_y_virus_7)+190 , int(temp_y_virus_7)+192):
         pos_x = 0
         pos_y = 0
         darah -= 25
